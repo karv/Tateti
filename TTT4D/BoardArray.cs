@@ -1,7 +1,7 @@
 ﻿namespace TTT4D
 {
 	/// <summary>
-	/// A full 4-Dimentional representing the state of a run.
+	/// A full 4-Dimentional matrix representing the state of a run.
 	/// </summary>
 	public class BoardArray
 	{
