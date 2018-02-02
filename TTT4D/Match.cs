@@ -24,6 +24,10 @@ namespace TTT4D
 		/// </summary>
 		/// <value>The current player.</value>
 		public Player CurrentPlayer => _players[CurrentPlayerIndex];
+		/// <summary>
+		/// Gets the player action validator.
+		/// </summary>
+		public MatchMoveValidator MoveValidator { get; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:TTT4D.Match"/> class with a specified <see cref="BoardArray"/>.
@@ -36,6 +40,7 @@ namespace TTT4D
 			CurrentBoard = board ?? throw new ArgumentNullException(nameof(board));
 			_players[0] = player0 ?? throw new ArgumentNullException(nameof(player0));
 			_players[1] = player1 ?? throw new ArgumentNullException(nameof(player1));
+			MoveValidator = new MatchMoveValidator(this);
 		}
 
 		/// <summary>
@@ -44,6 +49,15 @@ namespace TTT4D
 		/// <param name="player0">The 1st player.</param>
 		/// <param name="player1">The 2nd player.</param>
 		public Match(Player player0, Player player1) : this(new BoardArray(), player0, player1) { }
+
+		/// <summary>
+		/// Executes an action into the <see cref="BoardArray"/> and updates the turn counter.
+		/// </summary>
+		/// <param name="action">Action.</param>
+		public void ExecutePlayerAction(PlayerAction action)
+		{
+			throw new NotImplementedException();
+		}
 
 		/// <summary>
 		/// Gets the player with the specified index.
