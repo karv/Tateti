@@ -23,6 +23,7 @@
 		/// <param name="z">The z coordinate.</param>
 		/// <param name="w">The w coordinate.</param>
 		public int this[int x, int y, int z, int w] => _status[w][x, y, z];
+		public int this[Point4 point] => _status[point.W][point.X, point.Y, point.Z];
 
 		/// <summary>
 		/// Converts bijectively coordinates in this board into a <c>int</c>.
@@ -41,22 +42,23 @@
 			return x + base_2 * y + base_3 * z + base_4 * w;
 		}
 
+		public static int Digitalize(Point4 p) => Digitalize(p.X, p.Y, p.Z, p.W);
+
 		/// <summary>
 		/// Converts bijectively a <c>int</c> into coordinates.
 		/// </summary>
 		/// <param name="index">Index.</param>
-		public static (int x, int y, int z, int w) Undigitalize(int index)
+		public static Point4 Undigitalize(int index)
 		{
-			(int x, int y, int z, int w) coords;
-			coords.x = index % Board.BoardSize;
+			var x = index % Board.BoardSize;
 			index /= Board.BoardSize;
-			coords.y = index % Board.BoardSize;
+			var y = index % Board.BoardSize;
 			index /= Board.BoardSize;
-			coords.z = index % Board.BoardSize;
+			var z = index % Board.BoardSize;
 			index /= Board.BoardSize;
-			coords.w = index % Board.BoardSize;
+			var w = index % Board.BoardSize;
 
-			return coords;
+			return new Point4(x, y, z, w);
 		}
 
 		/// <summary/>
