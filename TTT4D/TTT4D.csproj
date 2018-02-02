@@ -50,6 +50,8 @@
     <Compile Include="MatchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Point3.cs" />
+    <Compile Include="Point4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
